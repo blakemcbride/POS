@@ -6,11 +6,11 @@ POS is a portable object system for Scheme. It offers the following features:
 
 1. It is very portable
 
-Only uses R5RS standard facilities including define-syntax/syntax-rules
+    Only uses R5RS standard facilities including define-syntax/syntax-rules
 
 2. Very small
 
-Consists of only 1 constant, 1 function and 1 macro
+    Consists of only 1 constant, 1 function and 1 macro
 
 3. Supports the following OO features
 
