@@ -19,7 +19,7 @@ POS is a portable object system for Scheme. It offers the following features:
   * strong instance and class variable encapsulation
   * very easy instance variable access from within methods
   * very simple to use
-  * no MOP but some reflection 
+  * no MOP but some reflection
 
 4. Open source and freely available
 
