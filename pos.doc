@@ -1,0 +1,144 @@
+
+POS version 1.0
+  10/17/06
+Blake McBride (blake@mcbride.name)
+
+Latest version can be downloaded at:  http://blake.mcbride.name
+
+POS is a portable object system for Scheme.  It offers the following
+features:
+
+1.  It is very portable
+
+	Only uses R5RS standard facilities including define-syntax/syntax-rules
+
+2.  Very small
+
+	Consists of only 1 constant, 1 function and 1 macro
+
+3.  Supports the following OO features
+
+	a.  multiple inheritance
+	b.  class and instance variables and methods
+	c.  strong instance and class variable encapsulation
+	d.  very easy instance variable access from within methods
+	e.  very simple to use
+	f.  no MOP
+
+4.  Open source and freely available
+
+[
+;   Note: I am in the process of writing another object system for scheme
+;   called Dynace for Scheme.  The new system is totally unrelated to POS,
+;   takes a totally different approach, and has the following features:
+;
+;	a.  Full MOP
+;	b.  Fully meta-class based and recursively defined
+;	c.  Multiple inheritance
+;	d.  Very portable - uses only standard R5RS
+;	e.  Very fast
+;	f.  Generic based
+;	g.  Completely integrated into the scheme system
+;	    (every scheme object is a Dynace object)
+;	h.  Open source
+]
+
+Classes are defined with a single macro as follows:
+
+(define-class	class-name   [class-defn-clause] ...)
+
+class-name:  the name of the new class (as a symbol)
+
+	example:   myclass
+
+class-defn-clause consists of any combination of class definition
+clauses in any order.  The following lists the various types
+available.
+
+class-variables: a list of class variables with initial values (in let
+format).  The 'cvars' is a required literal.
+
+	example:  (cvars
+	            (a 1)
+	            (b 2))
+
+instance-variables: a list of instance variables with initial values (in let
+format).  The 'ivars' is a required literal.
+
+	example:  (ivars
+	            (c 3)
+	            (d 4))
+
+class-methods:  a list of class method definitions in the format:
+The 'cmeths' is a required literal.
+
+	(cmeths
+	   meth1  meth2  ...  )
+
+where each meth looks as follows:
+
+	(meth-name (self arg1 arg2 ...)
+		code...)
+
+instance-methods:  have the same format as class-methods except that
+the literal 'imeths' is used.
+
+Built-in class methods:
+
+	'name  ;;  returns the string name of the class
+
+	'super 'meth arg1 ...  ;; executes a super-method (meth)
+
+	'class  ;; return #f (so you know you have a class object)
+
+Built-in instance methods:
+
+	'class  ;; returns the class object of the instance
+	
+	'super 'meth arg1 ...  ;; executes a super-method (meth)
+
+
+Instance variables defined in the class where the instance method is
+defined are accessible (set or get) as any other local variable.
+
+Class variables defined in the class where the class method is defined
+are accessible (set or get) as any other local variable.  Class methods
+and class variables work analogously to their instance counter parts
+as they should (contrary to Java).
+
+'self' can be used as in other OO languages.  'self' in class methods
+refers to the class object.
+
+Execution of methods on an object (class or instance):
+
+	(object  'method  arg1  arg2  ...)
+
+Creation of new instances can occur in two ways.  The first way is to
+use use the primitive function "make" as follows:
+
+	(define ins (make <myclass>))
+
+This creates an instance of the <myclass> class with all instance
+variables set to their default values and no special processing.
+
+The other way is to create a class method which takes potential
+arguments, creates a new instance, and performs any additional
+initialization processes.  See example-02.scm for an example of this.
+
+Note that the <> around class names is just a convention and not
+necessary.
+
+
+This work is:
+	
+	Copyright (c) 2006 Blake McBride (blake@mcbride.name)
+	All rights reserved.
+  
+	Free for any use so long as this note remains intact.
+
+	No warranty of any kind either express or implied.
+	Use at your own risk.
+
+
+;;  End of file
+
