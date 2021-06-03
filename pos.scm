@@ -2,7 +2,7 @@
 
 ;;  Portable Object System (POS)
 ;;  Release 1.0  10/17/06
-;;  Written by Blake McBride (blake@mcbride.name)
+;;  Written by Blake McBride (blake@mcbridemail.com)
 ;;
 ;;  Copyright (c) 2006 Blake McBride
 ;;  All rights reserved.

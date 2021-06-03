@@ -4,7 +4,7 @@
 ;;  It isn't using any macros so it's easier to see what is going on
 ;;  This version is incomplete since I countinued my development with
 ;;  the macro version once I got it working.  So this is just for reference.
-;;    --  Blake McBride (blake@mcbride.name)
+;;    --  Blake McBride
 
 
 (define *no-method* '*no-method*)

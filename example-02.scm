@@ -1,6 +1,6 @@
 ;;  This is a file I used to test POS
 ;;  It contains use of most of the features of the system
-;;    Blake McBride  (blake@mcbride.name)
+;;    Blake McBride
 
 (define-class <cls1>
   (cvars
