@@ -23,3 +23,6 @@ POS is a portable object system for Scheme. It offers the following features:
 
 4. Open source and freely available
 
+Source code for this system is available at:  [https://github.com/blakemcbride/POS](https://github.com/blakemcbride/POS)
+
+
